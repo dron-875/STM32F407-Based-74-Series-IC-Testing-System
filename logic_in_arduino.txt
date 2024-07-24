@@ -1,0 +1,935 @@
+if (ic_code == 7400 || ic_code == 7403 || ic_code == 7424 || ic_code == 7426 || ic_code == 7437 || ic_code == 7438 ) {
+        
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L3, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L12, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L11, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+
+bool check = true;
+        HAL_GPIO_WritePin(IC_port,L1, 0); HAL_GPIO_WritePin(IC_port,L2, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+        if ( (HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1) && (HAL_GPIO_ReadPin(IC_port,L11) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0); HAL_GPIO_WritePin(IC_port,L2, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+        if ((HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1) && (HAL_GPIO_ReadPin(IC_port,L11) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1); HAL_GPIO_WritePin(IC_port,L2, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+        if ((HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1) && (HAL_GPIO_ReadPin(IC_port,L11) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1); HAL_GPIO_WritePin(IC_port,L2, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        if ((HAL_GPIO_ReadPin(IC_port,L3) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0) && (HAL_GPIO_ReadPin(IC_port,L11) == 0))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+
+
+
+
+///////////////////////////////////////// 
+else if (ic_code == 7401) {
+
+         GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L3, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L1, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L6, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L4, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L8, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L10, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L11, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L12, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L13, GPIO_MODE_INPUT);
+
+
+
+        bool check = true;
+        HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L3, 0);
+        HAL_GPIO_WritePin(IC_port,L6, 0); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L8, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+        if ((HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L10) == 1) && (HAL_GPIO_ReadPin(IC_port,L13) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+       HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L3, 1);
+        HAL_GPIO_WritePin(IC_port,L6, 0); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L8, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+        if ((HAL_GPIO_ReadPin(IC_port,L1) == 1) && (HAL_GPIO_ReadPin(IC_port,L4) == 1) && (HAL_GPIO_ReadPin(IC_port,L10) == 1) && (HAL_GPIO_ReadPin(IC_port,L13) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L3, 0);
+        HAL_GPIO_WritePin(IC_port,L6, 1); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L8, 0);
+        HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L11,0);
+        if ((HAL_GPIO_ReadPin(IC_port,L1) == 1) && (HAL_GPIO_ReadPin(IC_port,L4) == 1) && (HAL_GPIO_ReadPin(IC_port,L10) == 1) && (HAL_GPIO_ReadPin(IC_port,L13) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L3, 1);
+        HAL_GPIO_WritePin(IC_port,L6, 1); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L8, 1);
+        HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L11,1);
+        if ((HAL_GPIO_ReadPin(IC_port,L1) == 0) && (HAL_GPIO_ReadPin(IC_port,L4) == 0) && (HAL_GPIO_ReadPin(IC_port,L10) == 0) && (HAL_GPIO_ReadPin(IC_port,L13) == 0))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+
+
+///////////////////////////////////////////////
+
+
+
+else if (ic_code == 7402 || ic_code == 7428 || ic_code == 7433) {
+
+         GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L3, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L1, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L6, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L4, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L8, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L10, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L11, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L12, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L13, GPIO_MODE_INPUT);       
+ 
+        bool check = true;
+        HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L3, 0);
+        HAL_GPIO_WritePin(IC_port,L6, 0); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L8, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+        if ((HAL_GPIO_ReadPin(IC_port,L1) == 1) && (HAL_GPIO_ReadPin(IC_port,L4) == 1) && (HAL_GPIO_ReadPin(IC_port,L10) == 1) && (HAL_GPIO_ReadPin(IC_port,L13) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+       HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L3, 1);
+        HAL_GPIO_WritePin(IC_port,L6, 0); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L8, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+        if ((HAL_GPIO_ReadPin(IC_port,L1) == 0) && (HAL_GPIO_ReadPin(IC_port,L4) == 0) && (HAL_GPIO_ReadPin(IC_port,L10) == 0) && (HAL_GPIO_ReadPin(IC_port,L13) == 0))
+                    check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L3, 0);
+        HAL_GPIO_WritePin(IC_port,L6, 1); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L8, 0);
+        HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L11,0);
+       if ((HAL_GPIO_ReadPin(IC_port,L1) == 0) && (HAL_GPIO_ReadPin(IC_port,L4) == 0) && (HAL_GPIO_ReadPin(IC_port,L10) == 0) && (HAL_GPIO_ReadPin(IC_port,L13) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L3, 1);
+        HAL_GPIO_WritePin(IC_port,L6, 1); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L8, 1);
+        HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L11,1);
+        if ((HAL_GPIO_ReadPin(IC_port,L1) == 0) && (HAL_GPIO_ReadPin(IC_port,L4) == 0) && (HAL_GPIO_ReadPin(IC_port,L10) == 0) && (HAL_GPIO_ReadPin(IC_port,L13) == 0))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+
+
+////////////////////
+else if (ic_code == 7404 || ic_code == 7405 || ic_code == 7406 || ic_code == 7414 || ic_code == 7416 || ic_code == 7417 || ic_code == 7419 || ic_code == 7434) {
+        bool check = true;
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L2, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L3, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L4, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L11, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L10, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L12, GPIO_MODE_INPUT);
+        
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);
+        if (HAL_GPIO_ReadPin(IC_port,L2) == 1)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L3, 0);
+        if (HAL_GPIO_ReadPin(IC_port,L4) == 1)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L5, 0);
+        if (HAL_GPIO_ReadPin(IC_port,L6) == 1)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L9, 0);
+        if (HAL_GPIO_ReadPin(IC_port,L8) == 1)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L11, 0);
+        if (HAL_GPIO_ReadPin(IC_port,L10) == 1)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L13, 0);
+        if (HAL_GPIO_ReadPin(IC_port,L12) == 1)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);
+        if (HAL_GPIO_ReadPin(IC_port,L2) == 0)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L3, 1);
+        if (HAL_GPIO_ReadPin(IC_port,L4) == 0)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L5, 1);
+        if (HAL_GPIO_ReadPin(IC_port,L6) == 0)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L9, 1);
+        if (HAL_GPIO_ReadPin(IC_port,L8) == 0)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L11, 1);
+        if (HAL_GPIO_ReadPin(IC_port,L10) == 0)
+            check = check;
+        else
+            check = false;
+
+        HAL_GPIO_WritePin(IC_port,L13, 1);
+        if (HAL_GPIO_ReadPin(IC_port,L12) == 0)
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+//////////////////////////////////////////////////////
+
+
+else if (ic_code == 7408 || ic_code == 7409) {
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L3, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L12, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L11, GPIO_MODE_INPUT);
+
+
+        bool check = true;
+        HAL_GPIO_WritePin(IC_port,L1, 0); HAL_GPIO_WritePin(IC_port,L2, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+         if ((HAL_GPIO_ReadPin(IC_port,L3) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0) && (HAL_GPIO_ReadPin(IC_port,L11) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0); HAL_GPIO_WritePin(IC_port,L2, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+ if ((HAL_GPIO_ReadPin(IC_port,L3) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0) && (HAL_GPIO_ReadPin(IC_port,L11) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1); HAL_GPIO_WritePin(IC_port,L2, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+         if ((HAL_GPIO_ReadPin(IC_port,L3) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0) && (HAL_GPIO_ReadPin(IC_port,L11) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1); HAL_GPIO_WritePin(IC_port,L2, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        if ((HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1) && (HAL_GPIO_ReadPin(IC_port,L11) == 1))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+////////////////////////////
+// 3ip nand
+
+
+else if (ic_code == 7410 || ic_code == 7412) {
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L12, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L3, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L11, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+
+        bool check = true;
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        /////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        /////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ////
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        /////
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+
+////////////////////
+
+
+else if (ic_code == 7411 || ic_code == 7415) {
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L12, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L3, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L11, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+
+        bool check = true;
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        /////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+    if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        /////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ////
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        /////
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// 4 ip NAND
+
+else if (ic_code == 7413 || ic_code == 7418 || ic_code == 7420 || ic_code == 7422 || ic_code == 7440) {
+        bool check = true;
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L12, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4,  0);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4,  0);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        //////////////////////////////////////////////////////
+
+         HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2,0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        //////////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+//////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4,  0);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        //////////////////////////////////////////////////////
+
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        //////////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+ ///////////////////////////////////////////////////
+
+// Thaki gyo chu
+
+// 4 ip AND
+
+else if (ic_code == 7421) {
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L12, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+
+        bool check = true;
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4,  0);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4,  0);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        //////////////////////////////////////////////////////
+
+         HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2,0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        //////////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+//////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4,  0);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        //////////////////////////////////////////////////////
+
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        //////////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        ///////////////////////////////////////////////////
+
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5,1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L12,1); HAL_GPIO_WritePin(IC_port,L13,1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+    //////////////////>>>>>>>>>>>><<<<<<<<<<>>>>>>>>>>>>>......./////////////
+
+else if (ic_code == 7427)
+    {
+
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L12, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L3, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L11, GPIO_MODE_OUTPUT_PP);   GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+
+        bool check = true;
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        /////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ////
+        HAL_GPIO_WritePin(IC_port,L1, 0);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        /////
+        HAL_GPIO_WritePin(IC_port,L1, 1);  HAL_GPIO_WritePin(IC_port,L2, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 0); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        ////
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 0);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+        /////
+         HAL_GPIO_WritePin(IC_port,L1,1);  HAL_GPIO_WritePin(IC_port,L2, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1);  HAL_GPIO_WritePin(IC_port,L5, 1); HAL_GPIO_WritePin(IC_port,L3,  1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1); HAL_GPIO_WritePin(IC_port,L11, 1);
+       
+        if ((HAL_GPIO_ReadPin(IC_port,L12) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+///////////////////// .,;;',;.;...............'?/////??????????????/////////////
+
+
+
+else if (ic_code == 7432) {
+
+         GPIO_Mode_Change(IC_port,L1, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L2, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L3, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L5, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L4, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L6, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L10, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L9, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L8, GPIO_MODE_INPUT);
+         GPIO_Mode_Change(IC_port,L13, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L12, GPIO_MODE_OUTPUT_PP);  GPIO_Mode_Change(IC_port,L11, GPIO_MODE_INPUT);
+
+
+        bool check = true;
+        HAL_GPIO_WritePin(IC_port,L1, 0); HAL_GPIO_WritePin(IC_port,L2, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 0); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13, 0);
+         if ((HAL_GPIO_ReadPin(IC_port,L3) == 0) && (HAL_GPIO_ReadPin(IC_port,L6) == 0) && (HAL_GPIO_ReadPin(IC_port,L8) == 0) && (HAL_GPIO_ReadPin(IC_port,L11) == 0))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 0); HAL_GPIO_WritePin(IC_port,L2, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 0); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 0); HAL_GPIO_WritePin(IC_port,L10, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 0); HAL_GPIO_WritePin(IC_port,L13, 1);
+ if ((HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1) && (HAL_GPIO_ReadPin(IC_port,L11) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1); HAL_GPIO_WritePin(IC_port,L2, 0);
+        HAL_GPIO_WritePin(IC_port,L4, 1); HAL_GPIO_WritePin(IC_port,L5, 0);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 0);
+        HAL_GPIO_WritePin(IC_port,L12, 1); HAL_GPIO_WritePin(IC_port,L13, 0);
+         if ((HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1) && (HAL_GPIO_ReadPin(IC_port,L11) == 1))
+            check = check;
+        else
+            check = false;
+        ///////////////////////////////////////////////
+        HAL_GPIO_WritePin(IC_port,L1, 1); HAL_GPIO_WritePin(IC_port,L2, 1);
+        HAL_GPIO_WritePin(IC_port,L4, 1); HAL_GPIO_WritePin(IC_port,L5, 1);
+        HAL_GPIO_WritePin(IC_port,L9, 1); HAL_GPIO_WritePin(IC_port,L10, 1);
+        HAL_GPIO_WritePin(IC_port,L12, 1); HAL_GPIO_WritePin(IC_port,L13, 1);
+        if ((HAL_GPIO_ReadPin(IC_port,L3) == 1) && (HAL_GPIO_ReadPin(IC_port,L6) == 1) && (HAL_GPIO_ReadPin(IC_port,L8) == 1) && (HAL_GPIO_ReadPin(IC_port,L11) == 1))
+            check = check;
+        else
+            check = false;
+
+        Serial.println(check);
+        Serial.println(ic_code);
+    }
+
+///////////////////// .,;;',;.;...............'?/////??????????????/////////////
+
+
+// 7430 nand nai lakhyo bau vadhar che
